@@ -1,0 +1,54 @@
+import random
+
+# Define the questions and answers
+questions = [
+    {
+        "question": "What is the currency of Japan?",
+        "options": ["A) Dollar", "B) Yuan", "C) Yen", "D) Won"],
+        "answer": "C"
+    },
+    {
+        "question": "Where is India's Silicon Valley located?",
+        "options": ["A) Mumbai", "B) Delhi", "C) Chennai", "D) Bangalore"],
+        "answer": "D"
+    },
+    {
+        "question": "What is the longest river on Earth?",
+        "options": ["A) Amazon", "B) Nile", "C) Yangtze River", "D) Mekong River"],
+        "answer": "B"
+    },
+    {
+        "question": "What is the most populous state in India?",
+        "options": ["A) Punjab", "B) Bihar", "C) Uttar Pradesh", "D) Kerala"],
+        "answer": "C"
+    },
+    {
+        "question": "Who invented Python?",
+        "options": ["A) Dennis Ritchie", "B) James Gosling", "C) Guido van Rossum", "D) Tim Berners-Lee"],
+        "answer": "C"
+    }
+]
+
+def ask_question(question):
+    print("\n" + question["question"])
+    for option in question["options"]:
+        print(option)
+    answer = input("Enter the letter of your answer: ").upper()
+    return answer == question["answer"]
+
+def run_quiz(questions):
+    score = 0
+    
+
+    for question in questions:
+        if ask_question(question):
+            print("Correct!")
+            score += 1
+        else:
+            print(f"Wrong! The correct answer was {question['answer']}.")
+
+    print(f"\nYour final score is {score}/{len(questions)}.")
+
+if __name__ == "__main__":
+    print("Welcome to the Quiz Game!")
+    run_quiz(questions)
